@@ -7,6 +7,15 @@ Elfenbein, Kupfer.
 
 Aufruf:  python plakat3.py [bild] [zielordner]     ohne Argumente: bild_ohne_schrift.png und dieser Ordner
 Schreibt plakat3_de.png / plakat3_en.png (A4, 300 dpi) und plakat3_de-web.jpg / plakat3_en-web.jpg (900 px breit).
+
+Druckfassung:  python plakat3.py --format A2|A3 [bild] [zielordner]
+A2 4961x7016, A3 3508x4961, 300 dpi, alle Maße mit Höhe/3508 skaliert; Bild ist dann
+bild_ohne_schrift_x2.png (SeedVR2 x2), Ziel druck/. Schreibt plakat3_<de|en>_<F>.png,
+_beschnitt.png (3 mm = 35 px ringsum, Rahmen und Schrift an derselben Stelle) und _vorschau.jpg.
+
+12.11.2026, auf Andys Wort: Die Nummernzeilen unten waren schlecht lesbar, weil das Bild dort hell
+ist. Der dunkle Verlauf unten beginnt darum bei 0,70 statt 0,78 der Höhe und geht bis 235 statt 215,
+und die Nummern tragen einen kräftigeren Schatten (mit Kontur).
 """
 import os
 import sys
@@ -20,7 +29,29 @@ KUPFER = (226, 164, 104)
 ELFENBEIN = (246, 238, 214)
 DUNKEL = (8, 26, 20)
 KONTUR = (18, 58, 42)
+SCHATTEN = (4, 12, 9)
 RAND = 260
+UNTEN_AB, UNTEN_BIS = 0.70, 235  # dunkler Verlauf unten: Beginn (Anteil der Höhe), Deckkraft am Fuß
+
+FORMATE = {"A2": (4961, 7016), "A3": (3508, 4961)}
+BESCHNITT = 35  # 3 mm bei 300 dpi
+FORMAT = None
+OFF = 0
+K = 1.0
+
+
+def formatieren(name):
+    """Stellt Endformat, Beschnitt und Maßfaktor für A2 oder A3 ein."""
+    global W, H, FORMAT, OFF, K
+    FORMAT = name
+    W, H = FORMATE[name]
+    OFF = BESCHNITT
+    K = H / 3508
+
+
+def m(v):
+    """Ein Maß des A4-Satzes; im Druckformat mit Höhe/3508 skaliert, sonst unverändert."""
+    return v if FORMAT is None else round(v * K)
 
 
 def font(name, size):
@@ -28,26 +59,28 @@ def font(name, size):
 
 
 def grund(pfad):
+    cw, ch = W + 2 * OFF, H + 2 * OFF
     quelle = Image.open(pfad).convert("RGB")
-    s = H / quelle.height
-    bild = quelle.resize((round(quelle.width * s), H), Image.BICUBIC)
-    if bild.width < W:
-        s = W / quelle.width
-        bild = quelle.resize((W, round(quelle.height * s)), Image.BICUBIC)
-    x0 = (bild.width - W) // 2
-    y0 = (bild.height - H) // 2
-    img = bild.crop((x0, y0, x0 + W, y0 + H))
-    maske = Image.new("L", (W, H), 0)
+    s = ch / quelle.height
+    bild = quelle.resize((round(quelle.width * s), ch), Image.BICUBIC)
+    if bild.width < cw:
+        s = cw / quelle.width
+        bild = quelle.resize((cw, round(quelle.height * s)), Image.BICUBIC)
+    x0 = (bild.width - cw) // 2
+    y0 = (bild.height - ch) // 2
+    img = bild.crop((x0, y0, x0 + cw, y0 + ch))
+    maske = Image.new("L", (cw, ch), 0)
     md = ImageDraw.Draw(maske)
-    for y in range(H):
-        if y < H * 0.36:
-            a = int(200 * (1 - y / (H * 0.36)) ** 1.2)
-        elif y > H * 0.78:
-            a = int(215 * ((y - H * 0.78) / (H * 0.22)) ** 0.9)
+    for y in range(ch):
+        yy = min(max(y - OFF, 0), H - 1)
+        if yy < H * 0.36:
+            a = int(200 * (1 - yy / (H * 0.36)) ** 1.2)
+        elif yy > H * UNTEN_AB:
+            a = int(UNTEN_BIS * ((yy - H * UNTEN_AB) / (H * (1 - UNTEN_AB))) ** 0.9)
         else:
             a = 0
-        md.line([(0, y), (W, y)], fill=a)
-    img.paste(Image.new("RGB", (W, H), DUNKEL), (0, 0), maske)
+        md.line([(0, y), (cw, y)], fill=a)
+    img.paste(Image.new("RGB", (cw, ch), DUNKEL), (0, 0), maske)
     return img
 
 
@@ -57,44 +90,50 @@ def setzen(bildpfad, t, zielordner, name):
 
     def mitte(text, y, fname, size, fill=ELFENBEIN, stroke=0):
         while True:
-            f = font(fname, size)
+            f = font(fname, m(size))
             b = d.textbbox((0, 0), text, font=f, stroke_width=stroke)
-            if b[2] - b[0] <= W - RAND or size < 30:
+            if b[2] - b[0] <= W - m(RAND) or size < 30:
                 break
             size -= 4
-        x = (W - (b[2] - b[0])) / 2 - b[0]
-        d.text((x + 6, y + 8), text, font=f, fill=(4, 12, 9), stroke_width=stroke, stroke_fill=(4, 12, 9))
-        d.text((x, y), text, font=f, fill=fill, stroke_width=stroke, stroke_fill=KONTUR)
+        x = (W - (b[2] - b[0])) / 2 - b[0] + OFF
+        d.text((x + m(6), y + m(8) + OFF), text, font=f, fill=SCHATTEN, stroke_width=stroke, stroke_fill=SCHATTEN)
+        d.text((x, y + OFF), text, font=f, fill=fill, stroke_width=stroke, stroke_fill=KONTUR)
         return y + (b[3] - b[1])
 
-    d.rectangle([50, 50, W - 50, H - 50], outline=KUPFER, width=12)
-    d.rectangle([82, 82, W - 82, H - 82], outline=KUPFER, width=3)
-    for cx, cy in ((82, 82), (W - 82, 82), (82, H - 82), (W - 82, H - 82)):
-        d.ellipse([cx - 22, cy - 22, cx + 22, cy + 22], fill=KUPFER)
+    d.rectangle([m(50) + OFF, m(50) + OFF, W - m(50) + OFF, H - m(50) + OFF], outline=KUPFER, width=m(12))
+    d.rectangle([m(82) + OFF, m(82) + OFF, W - m(82) + OFF, H - m(82) + OFF], outline=KUPFER, width=m(3))
+    for cx, cy in ((m(82), m(82)), (W - m(82), m(82)), (m(82), H - m(82)), (W - m(82), H - m(82))):
+        d.ellipse([cx - m(22) + OFF, cy - m(22) + OFF, cx + m(22) + OFF, cy + m(22) + OFF], fill=KUPFER)
 
-    y = 170
-    y = mitte(t["ueber"], y, "GILC____.TTF", 88, KUPFER) + 55
-    y = mitte(t["titel1"][0], y, "BROADW.TTF", t["titel1"][1], ELFENBEIN, 5) + 45
-    y = mitte(t["titel2"][0], y, "BROADW.TTF", t["titel2"][1], KUPFER, 5) + 60
-    y = mitte(t["unter"], y, "GARAIT.TTF", 84, ELFENBEIN) + 45
+    y = m(170)
+    y = mitte(t["ueber"], y, "GILC____.TTF", 88, KUPFER) + m(55)
+    y = mitte(t["titel1"][0], y, "BROADW.TTF", t["titel1"][1], ELFENBEIN, m(5)) + m(45)
+    y = mitte(t["titel2"][0], y, "BROADW.TTF", t["titel2"][1], KUPFER, m(5)) + m(60)
+    y = mitte(t["unter"], y, "GARAIT.TTF", 84, ELFENBEIN) + m(45)
     mitte(t["art"], y, "GILC____.TTF", 80, KUPFER)
 
-    prog = font("POORICH.TTF", 60)
+    prog = font("POORICH.TTF", m(60))
     yu = int(H * 0.815)
     for i, text in enumerate(t["nummern"]):
         spalte, zeile = i % 3, i // 3
-        x = [W * 0.20, W * 0.50, W * 0.80][spalte]
+        x = [W * 0.20, W * 0.50, W * 0.80][spalte] + OFF
         b = d.textbbox((0, 0), text, font=prog)
-        d.text((x - (b[2] - b[0]) / 2 + 4, yu + zeile * 88 + 5), text, font=prog, fill=(4, 12, 9))
-        d.text((x - (b[2] - b[0]) / 2, yu + zeile * 88), text, font=prog, fill=ELFENBEIN)
-    yu += 2 * 88 + 40
-    d.line([(W * 0.2, yu), (W * 0.8, yu)], fill=KUPFER, width=3)
-    yu += 35
-    yu = mitte(t["besetzung"], yu, "GILC____.TTF", 70, ELFENBEIN) + 26
-    yu = mitte(t["gast"], yu, "GARAIT.TTF", 62, KUPFER) + 24
-    yu = mitte(t["satz"], yu, "GARAIT.TTF", 54, ELFENBEIN) + 30
+        # kräftiger Schatten: versetzt und mit Kontur, dazu eine schmale dunkle Kontur um die Schrift
+        d.text((x - (b[2] - b[0]) / 2 + m(5), yu + zeile * m(88) + m(6) + OFF), text, font=prog, fill=SCHATTEN,
+               stroke_width=m(4), stroke_fill=SCHATTEN)
+        d.text((x - (b[2] - b[0]) / 2, yu + zeile * m(88) + OFF), text, font=prog, fill=ELFENBEIN,
+               stroke_width=m(2), stroke_fill=SCHATTEN)
+    yu += 2 * m(88) + m(40)
+    d.line([(W * 0.2 + OFF, yu + OFF), (W * 0.8 + OFF, yu + OFF)], fill=KUPFER, width=m(3))
+    yu += m(35)
+    yu = mitte(t["besetzung"], yu, "GILC____.TTF", 70, ELFENBEIN) + m(26)
+    yu = mitte(t["gast"], yu, "GARAIT.TTF", 62, KUPFER) + m(24)
+    yu = mitte(t["satz"], yu, "GARAIT.TTF", 54, ELFENBEIN) + m(30)
     mitte(t["fuss"], yu, "GILC____.TTF", 62, KUPFER)
 
+    if FORMAT:
+        from druck_speichern import speichern
+        return speichern(img, OFF, zielordner, name + "_" + FORMAT)
     a4 = os.path.join(zielordner, name + ".png")
     web = os.path.join(zielordner, name + "-web.jpg")
     img.save(a4, dpi=(300, 300))
@@ -131,7 +170,15 @@ EN = dict(
 )
 
 if __name__ == "__main__":
-    bild = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HIER, "bild_ohne_schrift.png")
-    ziel = sys.argv[2] if len(sys.argv) > 2 else HIER
+    args = sys.argv[1:]
+    if "--format" in args:
+        stelle = args.index("--format")
+        wahl = args[stelle + 1].upper()
+        del args[stelle:stelle + 2]
+        if wahl not in FORMATE:
+            sys.exit("--format A2 oder A3")
+        formatieren(wahl)
+    bild = args[0] if len(args) > 0 else os.path.join(HIER, "bild_ohne_schrift_x2.png" if FORMAT else "bild_ohne_schrift.png")
+    ziel = args[1] if len(args) > 1 else (os.path.join(HIER, "druck") if FORMAT else HIER)
     setzen(bild, DE, ziel, "plakat3_de")
     setzen(bild, EN, ziel, "plakat3_en")
