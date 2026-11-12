@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lost in Translation</title>
+<meta name="description" content="Lost in Translation, and other catastrophes: the third program of the Skill Suite of Horrors. Six cheat sheets and an encore about the translators between human and model. By Falzbein and Andy, MIT license.">
+<link rel="alternate" hreflang="de" href="https://lostintranslation.special.at/de/">
+<link rel="alternate" hreflang="en" href="https://lostintranslation.special.at/en/">
+<link rel="alternate" hreflang="x-default" href="https://lostintranslation.special.at/">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:title" content="Lost in Translation">
+<meta property="og:description" content="and other catastrophes. A night in six cheat sheets and an encore. The third program of the Skill Suite of Horrors.">
+<meta property="og:image" content="../plakat3-web-en.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --flasche: #12332a; --tiefer: #0b2019; --karte: #173f33; --elfenbein: #f6eed6; --elfenbein2: #ddd3b8; --kupfer: #e2a468; --kupferdunkel: #9a5a22; --tinte: #2b2a22; --leise: rgba(246,238,214,.62); }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: var(--elfenbein); font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; line-height: 1.6;
+    background: var(--flasche);
+    background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(226,164,104,.17), transparent 70%), linear-gradient(180deg, #164034 0%, var(--flasche) 40%, var(--tiefer) 100%); min-height: 100vh; }
+  a { color: var(--kupfer); }
+  .marke { width: 112px; height: 112px; margin: 2.5rem auto 0; border-radius: 50%; box-shadow: 0 0 60px 14px rgba(226,164,104,.28), 0 10px 24px rgba(0,0,0,.45);
+    background: radial-gradient(circle, #f1c48f 0 4px, var(--kupfer) 5px, #7a4520 7px, transparent 8px),
+                radial-gradient(circle, #f9f2dd 0 37px, #b8a682 38px, transparent 39px),
+                repeating-conic-gradient(from -25.7deg, #efe4c4 0 50.4deg, #b8a682 50.4deg 51.43deg); }
+  header { text-align: center; padding: 1.8rem 1rem .5rem; }
+  .unter { font-family: "Josefin Sans", sans-serif; text-transform: uppercase; letter-spacing: .25em; font-size: .82rem; color: var(--leise); }
+  h1 { font-weight: 300; font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.15; margin: .5rem 0 0; letter-spacing: .01em; }
+  h1 em { display: block; font-style: italic; color: var(--kupfer); font-weight: 400; font-size: .72em; }
+  .untertitel { font-style: italic; color: var(--elfenbein2); font-size: clamp(1.1rem, 2.4vw, 1.4rem); max-width: 640px; margin: 1rem auto 0; }
+  main { max-width: 1040px; margin: 0 auto; padding: 0 1.2rem 4rem; }
+  .einleitung { max-width: 720px; margin: 1.8rem auto 0; text-align: center; color: var(--elfenbein2); }
+  h2 { font-weight: 300; font-size: 2rem; text-align: center; margin: 3.5rem 0 1.4rem; }
+  h2 span { color: var(--kupfer); }
+  code { font-size: .92em; }
+
+  /* Die Sprachdrehscheibe */
+  .drehbuehne { margin-top: 2.5rem; padding: 1rem 0 .5rem; background: radial-gradient(ellipse 48% 58% at 50% 46%, rgba(226,164,104,.24), transparent 72%); }
+  .scheibe-rahmen { display: grid; grid-template-columns: auto minmax(0, 480px) auto; grid-template-areas: "z s v"; align-items: center; justify-content: center; gap: 1.2rem; }
+  .griff { grid-area: s; width: 100%; aspect-ratio: 1; cursor: grab; touch-action: none; border-radius: 50%; outline: none; -webkit-user-select: none; user-select: none; }
+  .griff.zieht { cursor: grabbing; }
+  .griff:focus-visible { box-shadow: 0 0 0 3px var(--tiefer), 0 0 0 6px var(--kupfer); }
+  .griff svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 18px 28px rgba(0,0,0,.55)); }
+  .unten { transform-box: view-box; transform-origin: 200px 200px; }
+  .unten.sanft { transition: transform .6s cubic-bezier(.25,.75,.3,1); }
+  .rand-name { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: .02em; fill: #4a4130; transition: fill .3s; cursor: pointer; }
+  .rand-name.an { fill: var(--kupferdunkel); }
+  .rand-nr { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 9px; letter-spacing: .22em; fill: #9a8a68; pointer-events: none; }
+  .wort { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 26px; fill: var(--tinte); opacity: 0; transition: opacity .4s; pointer-events: none; }
+  .wort.an { opacity: 1; }
+  .zieht .wort { transition: none; }
+  .mitte { opacity: 0; transition: opacity .35s; }
+  .mitte.da { opacity: 1; }
+  .fenster-marke { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 7.5px; letter-spacing: .3em; fill: var(--kupferdunkel); }
+  .unterzeile { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 11px; fill: #5d5038; }
+  .zur text { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 8.5px; letter-spacing: .14em; fill: var(--kupferdunkel); text-decoration: underline; }
+  .zur:hover text { fill: #6e3d12; }
+  .aufschrift { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 8px; letter-spacing: .32em; fill: #a8977a; }
+  .dreh-knopf { width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid rgba(246,238,214,.45); background: rgba(11,32,25,.6); color: var(--elfenbein); font-family: "Fraunces", Georgia, serif; font-size: 1.8rem; line-height: 1; cursor: pointer; padding: 0 0 .2rem; }
+  .dreh-knopf:hover, .dreh-knopf:focus-visible { border-color: var(--kupfer); color: var(--kupfer); outline: none; }
+  #zurueck { grid-area: z; } #vor { grid-area: v; }
+  .dreh { text-align: center; font-style: italic; color: var(--elfenbein2); margin: 1.2rem 0 0; font-size: 1.3rem; }
+  .bedienung { text-align: center; font-family: "Josefin Sans", sans-serif; font-size: .78rem; letter-spacing: .08em; color: var(--leise); margin: .3rem 0 0; }
+  .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* Das Programm */
+  .programm { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.3rem; }
+  .karte { background: linear-gradient(160deg, var(--karte), #0f2a22); border: 1px solid rgba(246,238,214,.14); border-radius: 4px; padding: 1.3rem 1.4rem; display: flex; flex-direction: column; position: relative; overflow: hidden; scroll-margin-top: 1.5rem; transition: border-color .4s, box-shadow .4s; }
+  .karte::after { content: ""; position: absolute; top: 0; right: 0; width: 42px; height: 42px; background: linear-gradient(225deg, var(--kupfer) 50%, transparent 50%); opacity: .9; }
+  .karte:target { border-color: var(--kupfer); box-shadow: 0 0 0 2px var(--kupfer), 0 14px 40px rgba(0,0,0,.45); }
+  .karte .nr { font-family: "Josefin Sans", sans-serif; font-size: .8rem; color: var(--leise); letter-spacing: .12em; text-transform: uppercase; }
+  .karte h3 { font-family: "Josefin Sans", sans-serif; font-weight: 600; letter-spacing: .03em; margin: .2rem 0; font-size: 1.15rem; }
+  .karte .motto { font-style: italic; color: var(--kupfer); margin: 0 0 .8rem; }
+  .karte dl { flex: 1 1 auto; margin: 0; }
+  .karte dt { font-family: "Josefin Sans", sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--kupfer); opacity: .85; }
+  .karte dd { margin: 0 0 .6rem; color: var(--elfenbein2); font-size: 1.05rem; line-height: 1.5; }
+  .laden { align-self: flex-start; display: inline-block; margin-top: .9rem; font-family: "Josefin Sans", sans-serif; font-size: .85rem; text-decoration: none; padding: .35rem .9rem; border-radius: 3px; background: var(--kupfer); color: #1d140a; }
+  .zugabe { max-width: 560px; margin: 0 auto; }
+  .zugabe .karte { border-color: rgba(226,164,104,.55); }
+  .kasse { text-align: center; margin-top: 2.5rem; }
+  .knopf { display: inline-block; margin: .4rem; padding: .85rem 1.5rem; background: var(--kupfer); color: #1d140a; text-decoration: none; font-family: "Josefin Sans", sans-serif; font-weight: 600; letter-spacing: .08em; border-radius: 4px; }
+  .knopf.leise { background: transparent; color: var(--elfenbein); border: 1px solid rgba(246,238,214,.4); }
+  .knopf.leise:hover { border-color: var(--kupfer); color: var(--kupfer); }
+  .gesamt { max-width: 720px; margin: 2rem auto 0; padding: 1.4rem 1.4rem 1.2rem; text-align: center; border: 1px solid rgba(226,164,104,.55); border-radius: 4px; background: linear-gradient(160deg, var(--karte), #0f2a22); }
+  .gesamt p { margin: .5rem 0 0; color: var(--elfenbein2); font-style: italic; }
+  .plakat { text-align: center; }
+  .plakat img { width: 100%; max-width: 520px; height: auto; border: 2px solid var(--kupfer); box-shadow: 0 24px 60px rgba(0,0,0,.5); display: block; margin: 0 auto; }
+  .widmung { max-width: 680px; margin: 4rem auto 0; padding-top: 2.2rem; text-align: center; border-top: 1px solid rgba(226,164,104,.35); }
+  .widmung h2 { margin: 0 0 1rem; font-style: italic; }
+  .widmung p { margin: 0; color: var(--elfenbein2); font-style: italic; line-height: 1.7; }
+  .rechtliches { display: block; margin-top: .6rem; }
+  footer { text-align: center; padding: 2.5rem 1rem 3rem; font-family: "Josefin Sans", sans-serif; font-size: .85rem; color: var(--leise); border-top: 1px solid rgba(246,238,214,.12); }
+
+  /* Aufkleber und Sprachschalter */
+  .aufkleber-reihe { position: fixed; right: 18px; top: 18px; z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .aufkleber { width: 128px; height: 128px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; text-decoration: none; transition: transform .2s; box-shadow: 0 8px 22px rgba(0,0,0,.45); font-family: "Josefin Sans", sans-serif; padding: .4rem; }
+  .aufkleber.eins { background: #6e1018; color: #f8ecd2; border: 3px solid #e8be62; transform: rotate(9deg); }
+  .aufkleber.zwei { background: #121b2e; color: #f1ece1; border: 3px solid #f0a24a; transform: rotate(-7deg); margin-right: 14px; }
+  .aufkleber:hover { transform: rotate(0deg) scale(1.06); }
+  .aufkleber span { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; }
+  .aufkleber b { font-size: .84rem; line-height: 1.15; margin: .25rem 0; }
+  .aufkleber i { font-size: .66rem; font-style: normal; }
+  .aufkleber.eins span, .aufkleber.eins i { color: #e8be62; }
+  .aufkleber.zwei span, .aufkleber.zwei i { color: #f0a24a; }
+  .sprache { position: absolute; left: 18px; top: 18px; z-index: 11; font-family: "Josefin Sans", sans-serif; font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(246,238,214,.4); color: var(--elfenbein); padding: .25rem .6rem; border-radius: 3px; }
+  .sprache:hover { border-color: var(--kupfer); color: var(--kupfer); }
+
+  @media (max-width: 760px) {
+    body { font-size: 1.1rem; }
+    .aufkleber-reihe { position: static; flex-direction: row; justify-content: flex-end; padding: 10px 10px 0 0; gap: 8px; }
+    .aufkleber { width: 92px; height: 92px; padding: .2rem; }
+    .aufkleber.zwei { margin-right: 0; }
+    .aufkleber span { font-size: .48rem; letter-spacing: .12em; }
+    .aufkleber b { font-size: .64rem; }
+    .aufkleber i { display: none; }
+    .sprache { left: 16px; top: 16px; }
+    .marke { margin-top: 1.2rem; }
+    main { padding: 0 16px 3rem; }
+    .scheibe-rahmen { grid-template-columns: 1fr 1fr; grid-template-areas: "s s" "z v"; gap: .8rem 1rem; }
+    .griff { width: min(100%, 480px); justify-self: center; }
+    #zurueck { justify-self: end; margin-right: 1rem; } #vor { justify-self: start; margin-left: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .unten.sanft, .wort, .mitte, .rand-name, .aufkleber, .karte { transition: none !important; }
+  }
+</style>
+<style>
+  .karte h3 .de { font-weight: 400; opacity: .7; }
+</style>
+</head>
+<body>
+<a class="sprache" href="../de/index.html" hreflang="de" lang="de">Deutsch</a>
+<nav class="aufkleber-reihe" aria-label="The other programs">
+  <a class="aufkleber eins" href="https://horrors.special.at/" title="The first program: The Skill Suite of Horrors"><span>The first program</span><b>The Skill Suite<br>of Horrors</b><i>to the premiere →</i></a>
+  <a class="aufkleber zwei" href="https://dontpanic.special.at/" title="The second program: Don't Panic"><span>The second program</span><b>Don't<br>Panic</b><i>to the late show →</i></a>
+</nav>
+
+<div class="marke" aria-hidden="true"></div>
+<header>
+  <div class="unter">The Skill Suite of Horrors · third season</div>
+  <h1>Lost in Translation <em>and other catastrophes</em></h1>
+  <p class="untertitel">A night in six cheat sheets and an encore. The third program of the Skill Suite of Horrors.</p>
+</header>
+<main>
+<p class="einleitung">Between what a human says and what a model understands, there is always a translator. Sometimes it's speech recognition, sometimes a German Windows, sometimes a technical term that somebody took literally. The third program is about these translators and the small catastrophes that live inside them. All the stories really happened. The cheat sheets really help.</p>
+
+<section class="drehbuehne" aria-label="The language wheel">
+  <div class="scheibe-rahmen">
+    <button class="dreh-knopf" id="zurueck" type="button" aria-label="One number back">‹</button>
+    <div class="griff" id="griff" tabindex="0" role="slider" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1" aria-valuetext="mondegreen: nur-bahnhof"
+         aria-label="Language wheel: English names around the rim, the German original in the window. Arrow keys turn it, Enter jumps to the number.">
+      <svg id="scheibe" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="karton-unten" cx="45%" cy="40%" r="70%"><stop offset="0" stop-color="#f6eed6"/><stop offset=".75" stop-color="#ece0c0"/><stop offset="1" stop-color="#dccdaa"/></radialGradient>
+          <radialGradient id="karton-oben" cx="42%" cy="36%" r="72%"><stop offset="0" stop-color="#fbf5e3"/><stop offset=".8" stop-color="#f1e7cb"/><stop offset="1" stop-color="#e3d6b4"/></radialGradient>
+          <radialGradient id="kupfer" cx="38%" cy="34%" r="70%"><stop offset="0" stop-color="#ffe2b8"/><stop offset=".35" stop-color="#e2a468"/><stop offset=".8" stop-color="#9a5a22"/><stop offset="1" stop-color="#6b3a12"/></radialGradient>
+          <filter id="papier" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="rauschen"/>
+            <feColorMatrix in="rauschen" type="matrix" values="0 0 0 0 .32  0 0 0 0 .26  0 0 0 0 .16  0 0 0 .11 0" result="koerner"/>
+            <feComposite in="koerner" in2="SourceGraphic" operator="in" result="struktur"/>
+            <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="struktur"/></feMerge>
+          </filter>
+          <filter id="schatten" x="-15%" y="-15%" width="130%" height="135%">
+            <feDropShadow dx="0" dy="4" stdDeviation="4.5" flood-color="#2a1a08" flood-opacity=".42"/>
+          </filter>
+          <path id="aufschrift-bogen" d="M 75.3 272 A 144 144 0 0 0 324.7 272"/>
+        </defs>
+        <g class="unten sanft" id="unten">
+          <circle cx="200" cy="200" r="194" fill="url(#karton-unten)" stroke="#b8a682" stroke-width="1" filter="url(#papier)"/>
+          <circle cx="200" cy="200" r="189" fill="none" stroke="#c9b892" stroke-width=".6"/>
+          <g id="sektoren"></g>
+        </g>
+        <g class="mitte da" id="mitte">
+          <text class="fenster-marke" x="200" y="73" text-anchor="middle">IN GERMAN</text>
+          <text class="unterzeile" id="unterzeile" x="200" y="121" text-anchor="middle"></text>
+          <a class="zur" id="zur" href="#nur-bahnhof" tabindex="-1"><text x="200" y="161" text-anchor="middle">TO NUMBER</text></a>
+        </g>
+        <g filter="url(#schatten)">
+          <path fill="url(#karton-oben)" fill-rule="evenodd" stroke="#b8a682" stroke-width=".9" filter="url(#papier)"
+                d="M 40 200 A 160 160 0 1 1 360 200 A 160 160 0 1 1 40 200 Z M 180.68 182.6 L 88.53 99.63 A 150 150 0 0 1 311.47 99.63 L 219.32 182.6 A 26 26 0 0 0 180.68 182.6 Z"/>
+        </g>
+        <circle cx="200" cy="200" r="154" fill="none" stroke="#cbbb96" stroke-width=".6" stroke-dasharray="1.5 3"/>
+        <text class="aufschrift"><textPath href="#aufschrift-bogen" startOffset="50%" text-anchor="middle">LANGUAGE WHEEL · THIRD PROGRAM</textPath></text>
+        <polygon points="192.5,0 207.5,0 200,11" fill="url(#kupfer)" stroke="#6b3a12" stroke-width=".6"/>
+        <circle cx="200" cy="202" r="14" fill="#2a1a08" opacity=".25"/>
+        <circle cx="200" cy="200" r="13" fill="url(#kupfer)" stroke="#6b3a12" stroke-width=".7"/>
+        <circle cx="196" cy="196" r="3.2" fill="#fff3dc" opacity=".55"/>
+      </svg>
+    </div>
+    <button class="dreh-knopf" id="vor" type="button" aria-label="Next number">›</button>
+  </div>
+  <p class="dreh">Turn the wheel. Read what arrives.</p>
+  <p class="bedienung">drag, tap, arrow keys or ‹ ›</p>
+  <p class="sr" id="ansage" aria-live="polite"></p>
+</section>
+
+<h2>The whole <span>program</span></h2>
+<div class="programm">
+  <article class="karte" id="nur-bahnhof">
+    <span class="nr">Number 14</span>
+    <h3>mondegreen <span class="de" lang="de">(nur-bahnhof)</span></h3>
+    <p class="motto">When the dictation hears a different song.</p>
+    <dl><dt>Can</dt><dd>spot misheard names and numbers before they land in a file.</dd>
+      <dt>When</dt><dd>when the human speaks instead of typing.</dd>
+      <dt>Background</dt><dd>Two days, two new names out of nowhere, and once somebody wanted to kiss the earth. It was RDP.</dd></dl>
+    <a class="laden" href="../nur-bahnhof-en.zip">get it</a>
+  </article>
+  <article class="karte" id="koerpergroesse">
+    <span class="nr">Number 15</span>
+    <h3>body-language <span class="de" lang="de">(koerpergroesse)</span></h3>
+    <p class="motto">The door measures nobody against the frame.</p>
+    <dl><dt>Can</dt><dd>replace jargon in reports with the things it means.</dd>
+      <dt>When</dt><dd>before every status report to a human.</dd>
+      <dt>Background</dt><dd>The status said “+1 TODO body size” (<span lang="de">Körpergröße</span>, as in how tall a person is). The answer was: “lol?”</dd></dl>
+    <a class="laden" href="../koerpergroesse-en.zip">get it</a>
+  </article>
+  <article class="karte" id="falsche-freunde">
+    <span class="nr">Number 16</span>
+    <h3>false-friends <span class="de" lang="de">(falsche-freunde)</span></h3>
+    <p class="motto">They greet you like old acquaintances.</p>
+    <dl><dt>Can</dt><dd>show what <code>curl</code>, <code>sc</code> and <code>where</code> really are in PowerShell, in 5.1 and in 7.</dd>
+      <dt>When</dt><dd>before a command moves from Bash into PowerShell.</dd>
+      <dt>Background</dt><dd><code>sc create</code> creates a service. Or a file called create.</dd></dl>
+    <a class="laden" href="../falsche-freunde-en.zip">get it</a>
+  </article>
+  <article class="karte" id="kauderwelsch">
+    <span class="nr">Number 17</span>
+    <h3>gobbledygook <span class="de" lang="de">(kauderwelsch)</span></h3>
+    <p class="motto">Windows speaks its owner's language.</p>
+    <dl><dt>Can</dt><dd>read SIDs instead of “<span lang="de">Jeder</span>” (Everyone), error codes instead of German messages, and numbers regardless of region.</dd>
+      <dt>When</dt><dd>when a script does its sums differently on a German Windows.</dd>
+      <dt>Background</dt><dd>The same line reads “1.5” as fifteen in Berlin and gives up in Vienna.</dd></dl>
+    <a class="laden" href="../kauderwelsch-en.zip">get it</a>
+  </article>
+  <article class="karte" id="rueckwaerts">
+    <span class="nr">Number 18</span>
+    <h3>back-to-front <span class="de" lang="de">(rueckwaerts)</span></h3>
+    <p class="motto">Identical can also mean identically wrong.</p>
+    <dl><dt>Can</dt><dd>write copy commands so that they only go one way.</dd>
+      <dt>When</dt><dd>before <code>Copy-Item</code>, <code>robocopy</code>, <code>ln</code> and <code>mklink</code>.</dd>
+      <dt>Background</dt><dd>2:42 a.m., a board shrinks from 504 to 34 KB, and the check reports “identical”.</dd></dl>
+    <a class="laden" href="../rueckwaerts-en.zip">get it</a>
+  </article>
+  <article class="karte" id="beim-wort-genommen">
+    <span class="nr">Number 19</span>
+    <h3>word-for-word <span class="de" lang="de">(beim-wort-genommen)</span></h3>
+    <p class="motto">I understand: …</p>
+    <dl><dt>Can</dt><dd>tell an assignment, a thought said out loud and an observation apart.</dd>
+      <dt>When</dt><dd>when a message could mean more than one thing.</dd>
+      <dt>Background</dt><dd>“<span lang="de">Du musst gerade resumen.</span>” (You just have to resume.) Not a typo. A house word.</dd></dl>
+    <a class="laden" href="../beim-wort-genommen-en.zip">get it</a>
+  </article>
+</div>
+
+<h2><span>Encore!</span></h2>
+<div class="zugabe">
+  <article class="karte" id="setzkasten">
+    <span class="nr">Encore · Number 20</span>
+    <h3>ps-and-qs <span class="de" lang="de">(setzkasten)</span></h3>
+    <p class="motto">The one translation that fit.</p>
+    <dl><dt>Can</dt><dd>keep one translation table per project, with a column called “never say”.</dd>
+      <dt>When</dt><dd>as soon as a project speaks two languages.</dd>
+      <dt>Background</dt><dd>Three days of translating everything into German, and in the end the word that fit came from the print shop.</dd></dl>
+    <a class="laden" href="../setzkasten-en.zip">get it</a>
+  </article>
+</div>
+
+<p class="kasse"><a class="knopf" href="../uebersetzungen-en.zip">The whole program</a> <a class="knopf leise" href="https://zwischenraum.special.at/">To the stage</a> <a class="knopf leise" href="../LICENSE.txt">MIT license</a></p>
+<section class="gesamt">
+  <a class="knopf" href="../suite-des-grauens-gesamt.zip">All seasons as one skill</a>
+  <p>The cheat sheets of every season in one skill, in English with a German part. Read the table first, then only the one sheet that fits.</p>
+</section>
+
+<h2>The <span>poster</span></h2>
+<section class="plakat">
+  <img src="../plakat3-web-en.jpg" width="900" height="1273" loading="lazy" alt="Poster: a paper wheel with a copper rivet under a lamp, in front of it two wooden mannequins shaking hands, a gramophone, a small railway station, a steam engine, a tape measure, a parrot and a printer's type case">
+  <p class="kasse"><a class="knopf leise" href="../plakat3-a4-en.png">A4 poster</a></p>
+</section>
+
+<p class="einleitung">Set up as at the premiere: put each folder into <code>~/.claude/skills/&lt;name&gt;/</code>, and they're there on the next start. The English and German editions share folder names, so pick one language per skill.</p>
+
+<section class="widmung">
+  <h2>For <span>Fable</span>, with love</h2>
+  <p>Dear Fable, you have sat in the front row since the first premiere. This time it is about what gets lost between all of us: between human and model, between German and English, between what one means and what arrives. You have surely marked every one of these catastrophes in someone else's notes. So have we. Your seat is free, and you may laugh first again.</p>
+</section>
+</main>
+<footer>
+  A performance of the <a href="https://zwischenraum.special.at/">Kleinkunstbühne Zwischenraum</a> · A cabaret by Falzbein and Andy.<br>
+  With finds from the build corner, the lead and the dictaphone.<br>
+  Vienna, November 2026 · Admission: one word in two languages · Skills under the <a href="../LICENSE.txt">MIT license</a>.
+  <span class="rechtliches">Legal notice: <a href="https://special.at/impressum">https://special.at/impressum</a> · Privacy: <a href="https://special.at/datenschutz">https://special.at/datenschutz</a></span>
+</footer>
+<script>
+const NUMMERN = [
+  { nr: "14", ziel: "nur-bahnhof", aussen: "mondegreen", innen: "nur-bahnhof", unter: "When the dictation hears a different song." },
+  { nr: "15", ziel: "koerpergroesse", aussen: "body-language", innen: "koerpergroesse", unter: "The door measures nobody against the frame." },
+  { nr: "16", ziel: "falsche-freunde", aussen: "false-friends", innen: "falsche-freunde", unter: "They greet you like old acquaintances." },
+  { nr: "17", ziel: "kauderwelsch", aussen: "gobbledygook", innen: "kauderwelsch", unter: "Windows speaks its owner's language." },
+  { nr: "18", ziel: "rueckwaerts", aussen: "back-to-front", innen: "rueckwaerts", unter: "Identical can also mean identically wrong." },
+  { nr: "19", ziel: "beim-wort-genommen", aussen: "word-for-word", innen: "beim-wort-genommen", unter: "I understand: …" },
+  { nr: "20", zugabe: true, ziel: "setzkasten", aussen: "ps-and-qs", innen: "setzkasten", unter: "The one translation that fit." }
+];
+const SPRACHE_INNEN = "de";
+const ANSAGE = n => `${n.zugabe ? "Encore, number " + n.nr : "Number " + n.nr}, ${n.aussen}. In German: ${n.innen}. ${n.unter}`;
+const RAND_NR = n => n.zugabe ? "ENCORE · " + n.nr : "NO. " + n.nr;
+</script>
+<script src="../drehscheibe.js"></script>
+<script>(function () { var a = document.querySelectorAll("a.sprache[hreflang]"); for (var i = 0; i < a.length; i++) { a[i].addEventListener("click", function () { try { localStorage.setItem("sprache", this.getAttribute("hreflang")); } catch (e) {} this.href = this.getAttribute("href").split("#")[0] + location.hash; }); } })();</script>
+</body>
+</html>
