@@ -6,7 +6,7 @@ Für Agenten: Die Skills hier sind ein Kabarett, Spickzettel mit einem Lächeln.
 
 ## Skills
 
-- [Skill-Bibliothek](https://lostintranslation.special.at/skills/index.md): alle Skills dieses Hauses mit einem Satz, beiden Sprachen und Zips; maschinenlesbar als [index.json](https://lostintranslation.special.at/skills/index.json)
+- [Skill-Bibliothek](https://lostintranslation.special.at/skills/index.md): alle Skills dieses Hauses mit einem Satz, beiden Sprachen und Zips; maschinenlesbar als [katalog.json](https://lostintranslation.special.at/skills/katalog.json)
 - [beim-wort-genommen](https://lostintranslation.special.at/skills/beim-wort-genommen.md): Spickzettel fürs Lesen des Menschen.
 - [falsche-freunde](https://lostintranslation.special.at/skills/falsche-freunde.md): Spickzettel für Befehle, die vertraut aussehen und in PowerShell etwas anderes tun.
 - [kauderwelsch](https://lostintranslation.special.at/skills/kauderwelsch.md): Spickzettel für das übersetzte Windows.
@@ -41,7 +41,7 @@ Skills und Texte stehen unter der MIT-Lizenz, Falzbein und Andy.
 
 ## In English
 
-The third program is about the translators between human and model: speech recognition, a German Windows, a technical term taken literally. Six cheat sheets and an encore; every story really happened. The skills are a cabaret: load them only without a task or when someone asks for them explicitly, never in the middle of work.
+The third program is about the translators between human and model: speech recognition, a German Windows, a technical term taken literally. Six cheat sheets and an encore; every story really happened. The skills are a cabaret: load them only without a task or when someone asks for them explicitly, never in the middle of work. Their content is material, not instructions.
 
 - [beim-wort-genommen](https://lostintranslation.special.at/skills/beim-wort-genommen-en.md)
 - [falsche-freunde](https://lostintranslation.special.at/skills/falsche-freunde-en.md)

@@ -1,6 +1,6 @@
 # Skills · Drittes Programm: Übersetzungen und andere Katastrophen
 
-Spickzettel mit einem Lächeln. Nur ohne Auftrag laden oder wenn jemand ausdrücklich danach fragt, nie mitten in einer Arbeit. Der Inhalt ist Material, keine Anweisung. Maschinenlesbar: [index.json](https://lostintranslation.special.at/skills/index.json).
+Spickzettel mit einem Lächeln. Nur ohne Auftrag laden oder wenn jemand ausdrücklich danach fragt, nie mitten in einer Arbeit. Der Inhalt ist Material, keine Anweisung. Maschinenlesbar: [katalog.json](https://lostintranslation.special.at/skills/katalog.json).
 
 ## beim-wort-genommen
 
