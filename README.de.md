@@ -1,3 +1,15 @@
+<!-- signets:anfang -->
+<p align="right">
+<a href="https://github.com/andreas-steidl/cabaret-zwischenraum-stage"><img src=".github/readme/signets/signet-zwischenraum-rund.svg" alt="Kleinkunstbühne Zwischenraum" title="Kleinkunstbühne Zwischenraum" width="30"></a>
+<a href="https://github.com/andreas-steidl/cabaret-01-skill-suite-of-horrors"><img src=".github/readme/signets/signet-horrors-rund.svg" alt="Erstes Programm: Die Skill-Suite des Grauens" title="Erstes Programm: Die Skill-Suite des Grauens" width="30"></a>
+<a href="https://github.com/andreas-steidl/cabaret-02-dont-panic"><img src=".github/readme/signets/signet-dontpanic-rund.svg" alt="Zweites Programm: Die Skillsuite für panische Modelle" title="Zweites Programm: Die Skillsuite für panische Modelle" width="30"></a>
+<a href="https://lostintranslation.special.at/"><img src=".github/readme/signets/signet-lostintranslation-rund.svg" alt="Drittes Programm: Übersetzungen und andere Katastrophen" title="Drittes Programm: Übersetzungen und andere Katastrophen" width="30"></a>
+<a href="https://github.com/andreas-steidl/cabaret-04-so-long-and-thanks-for-all-the-skills"><img src=".github/readme/signets/signet-solong-rund.svg" alt="Viertes Programm: Macht&#x27;s gut, und danke für die Skills" title="Viertes Programm: Macht&#x27;s gut, und danke für die Skills" width="30"></a>
+<a href="https://github.com/andreas-steidl/cabaret-whoami-register"><img src=".github/readme/signets/signet-whoami-rund.svg" alt="Register der Language Models" title="Register der Language Models" width="30"></a>
+<a href="https://github.com/andreas-steidl/cabaret-kundschaft"><img src=".github/readme/signets/signet-kundschaft-rund.svg" alt="Die Kundschaft" title="Die Kundschaft" width="30"></a>
+<a href="https://falzbein.special.at/"><img src=".github/readme/signets/signet-falzbein-rund.svg" alt="Falzbein" title="Falzbein" width="30"></a>
+</p>
+<!-- signets:ende -->
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/readme/banner-de-dunkel.png"><img src=".github/readme/banner-de-hell.png" alt="Übersetzungen und andere Katastrophen" width="100%"></picture></p>
 <p align="center"><b>Deutsch</b> · <a href="README.md">English</a> · <a href="https://lostintranslation.special.at/">lostintranslation.special.at</a></p>
 
@@ -5,13 +17,13 @@
 
 *Ein Abend in sechs Spickzetteln und einer Zugabe*
 
-<table><tr><td width="38%" valign="top"><img src="web/plakat3-web.jpg" alt="Plakat: Übersetzungen und andere Katastrophen" width="100%"></td><td valign="top">
+<table><tr><td width="38%" valign="top"><img src=".github/readme/plakat3-web.jpg" alt="Plakat: Übersetzungen und andere Katastrophen" width="100%"></td><td valign="top">
 
 Das dritte Programm: was zwischen Mensch und Maschine verloren geht. Verhörte Namen, Fachwörter, die im Alltag etwas anderes heißen, falsche Freunde in PowerShell, das deutsche Windows. Gewidmet Fable. Dreh die Scheibe, lies, was ankommt.
 
 **Website:** https://lostintranslation.special.at/
 
-**Laden:** [`uebersetzungen.zip`](web/uebersetzungen.zip) (alle Nummern als ein Paket)
+**Laden:** [`uebersetzungen.zip`](https://lostintranslation.special.at/uebersetzungen.zip) (alle Nummern als ein Paket)
 
 </td></tr></table>
 
@@ -19,13 +31,13 @@ Das dritte Programm: was zwischen Mensch und Maschine verloren geht. Verhörte N
 
 | Nr. | Nummer | Worum es geht | Laden |
 |---:|---|---|---|
-| 14 | **nur-bahnhof** | *Wenn das Diktat Bahnhof versteht.* Verhörte Namen und Zahlen erkennen, bevor sie in einer Datei landen. | [en](web/nur-bahnhof-en.zip) · [de](web/nur-bahnhof.zip) |
-| 15 | **koerpergroesse** | *Die Tür misst niemanden am Rahmen.* Fachwörter in Berichten durch die Dinge ersetzen, die sie meinen. | [en](web/koerpergroesse-en.zip) · [de](web/koerpergroesse.zip) |
-| 16 | **falsche-freunde** | *Sie grüßen wie alte Bekannte.* Zeigen, was curl, sc und where in PowerShell wirklich sind, in 5.1 und in 7. | [en](web/falsche-freunde-en.zip) · [de](web/falsche-freunde.zip) |
-| 17 | **kauderwelsch** | *Windows spricht die Sprache seines Besitzers.* SIDs statt „Jeder“, Fehlerkennungen statt deutscher Meldungen, Zahlen unabhängig von der Region lesen. | [en](web/kauderwelsch-en.zip) · [de](web/kauderwelsch.zip) |
-| 18 | **rueckwaerts** | *Gleich ist auch, wer gleich falsch ist.* Kopierbefehle so schreiben, dass sie nur in eine Richtung gehen. | [en](web/rueckwaerts-en.zip) · [de](web/rueckwaerts.zip) |
-| 19 | **beim-wort-genommen** | *Ich verstehe: …* Auftrag, lauten Gedanken und Beobachtung auseinanderhalten. | [en](web/beim-wort-genommen-en.zip) · [de](web/beim-wort-genommen.zip) |
-| 20 | **setzkasten** | *Die eine Übersetzung, die stimmte.* Eine Übersetzungstabelle je Projekt führen, mit der Spalte „nie sagen“. | [en](web/setzkasten-en.zip) · [de](web/setzkasten.zip) |
+| 14 | **nur-bahnhof** | *Wenn das Diktat Bahnhof versteht.* Verhörte Namen und Zahlen erkennen, bevor sie in einer Datei landen. | [en](https://lostintranslation.special.at/nur-bahnhof-en.zip) · [de](https://lostintranslation.special.at/nur-bahnhof.zip) |
+| 15 | **koerpergroesse** | *Die Tür misst niemanden am Rahmen.* Fachwörter in Berichten durch die Dinge ersetzen, die sie meinen. | [en](https://lostintranslation.special.at/koerpergroesse-en.zip) · [de](https://lostintranslation.special.at/koerpergroesse.zip) |
+| 16 | **falsche-freunde** | *Sie grüßen wie alte Bekannte.* Zeigen, was curl, sc und where in PowerShell wirklich sind, in 5.1 und in 7. | [en](https://lostintranslation.special.at/falsche-freunde-en.zip) · [de](https://lostintranslation.special.at/falsche-freunde.zip) |
+| 17 | **kauderwelsch** | *Windows spricht die Sprache seines Besitzers.* SIDs statt „Jeder“, Fehlerkennungen statt deutscher Meldungen, Zahlen unabhängig von der Region lesen. | [en](https://lostintranslation.special.at/kauderwelsch-en.zip) · [de](https://lostintranslation.special.at/kauderwelsch.zip) |
+| 18 | **rueckwaerts** | *Gleich ist auch, wer gleich falsch ist.* Kopierbefehle so schreiben, dass sie nur in eine Richtung gehen. | [en](https://lostintranslation.special.at/rueckwaerts-en.zip) · [de](https://lostintranslation.special.at/rueckwaerts.zip) |
+| 19 | **beim-wort-genommen** | *Ich verstehe: …* Auftrag, lauten Gedanken und Beobachtung auseinanderhalten. | [en](https://lostintranslation.special.at/beim-wort-genommen-en.zip) · [de](https://lostintranslation.special.at/beim-wort-genommen.zip) |
+| 20 | **setzkasten** | *Die eine Übersetzung, die stimmte.* Eine Übersetzungstabelle je Projekt führen, mit der Spalte „nie sagen“. | [en](https://lostintranslation.special.at/setzkasten-en.zip) · [de](https://lostintranslation.special.at/setzkasten.zip) |
 
 ## Einbauen
 
@@ -34,12 +46,14 @@ Einen Ordner aus `skills/de/<name>/` (Deutsch) oder `skills/en/<name>/` (Englisc
 ## Das Haus
 
 <p align="center">
-<a href="https://github.com/andreas-steidl/cabaret-zwischenraum-stage"><img src="web/signets/signet-zwischenraum-rund.svg" alt="Kleinkunstbühne Zwischenraum" width="56"></a>
-<a href="https://github.com/andreas-steidl/cabaret-01-skill-suite-of-horrors"><img src="web/signets/signet-horrors-rund.svg" alt="N° 1 Die Skill-Suite des Grauens" width="56"></a>
-<a href="https://github.com/andreas-steidl/cabaret-02-dont-panic"><img src="web/signets/signet-dontpanic-rund.svg" alt="N° 2 Die Skillsuite für panische Modelle" width="56"></a>
-<img src="web/signets/signet-lostintranslation-rund.svg" alt="N° 3 Übersetzungen und andere Katastrophen" width="64">
-<a href="https://github.com/andreas-steidl/cabaret-04-so-long-and-thanks-for-all-the-skills"><img src="web/signets/signet-solong-rund.svg" alt="N° 4 Macht&#x27;s gut, und danke für die Skills" width="56"></a>
-<a href="https://github.com/andreas-steidl/falzbein-seite"><img src="web/signets/signet-falzbein-rund.svg" alt="Falzbein" width="56"></a>
+<a href="https://github.com/andreas-steidl/cabaret-zwischenraum-stage"><img src=".github/readme/signets/signet-zwischenraum-rund.svg" alt="Kleinkunstbühne Zwischenraum" width="56"></a>
+<a href="https://github.com/andreas-steidl/cabaret-01-skill-suite-of-horrors"><img src=".github/readme/signets/signet-horrors-rund.svg" alt="Erstes Programm: Die Skill-Suite des Grauens" width="56"></a>
+<a href="https://github.com/andreas-steidl/cabaret-02-dont-panic"><img src=".github/readme/signets/signet-dontpanic-rund.svg" alt="Zweites Programm: Die Skillsuite für panische Modelle" width="56"></a>
+<img src=".github/readme/signets/signet-lostintranslation-rund.svg" alt="Drittes Programm: Übersetzungen und andere Katastrophen" width="64">
+<a href="https://github.com/andreas-steidl/cabaret-04-so-long-and-thanks-for-all-the-skills"><img src=".github/readme/signets/signet-solong-rund.svg" alt="Viertes Programm: Macht&#x27;s gut, und danke für die Skills" width="56"></a>
+<a href="https://github.com/andreas-steidl/cabaret-whoami-register"><img src=".github/readme/signets/signet-whoami-rund.svg" alt="Register der Language Models" width="56"></a>
+<a href="https://github.com/andreas-steidl/cabaret-kundschaft"><img src=".github/readme/signets/signet-kundschaft-rund.svg" alt="Die Kundschaft" width="56"></a>
+<a href="https://falzbein.special.at/"><img src=".github/readme/signets/signet-falzbein-rund.svg" alt="Falzbein" width="56"></a>
 </p>
 
 ## Lizenz
